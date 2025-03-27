@@ -14,6 +14,7 @@ export const Characters = () => {
   const [characters, setCharacters] = useState<ICharacter[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const axiosInstance = useAxios();
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ export const Characters = () => {
     setError("");
 
     try {
-      const response = await useAxios().get(`/character/?name=${query}`);
+      const response = await axiosInstance.get(`/character/?name=${query}`);
       setCharacters(response.data?.results);
     } catch (err) {
       console.error(err);
