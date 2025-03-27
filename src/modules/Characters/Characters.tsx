@@ -7,7 +7,7 @@ import { SearchForm } from "@/components/ui/SearchForm";
 import { Loading } from "@/components/ui/Loading";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { CharacterGrid } from "./CharactersGrid";
-import { CharacterService } from "@/services/characterService";
+import { useAxios } from "@/hooks/useAxios";
 
 export const Characters = () => {
   const [query, setQuery] = useState("");
@@ -23,10 +23,10 @@ export const Characters = () => {
     setError("");
 
     try {
-      const results = await CharacterService.searchCharacters(query);
-      setCharacters(results);
+      const response = await useAxios().get(`/character/?name=${query}`);
+      setCharacters(response.data?.results);
     } catch (err) {
-      console.error(err)
+      console.error(err);
       setCharacters(null);
       setError("No characters found 😢");
     } finally {
