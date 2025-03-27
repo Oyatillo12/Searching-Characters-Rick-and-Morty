@@ -1,17 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { Character } from "@/types/characters";
+import { ICharacter } from "@/types/characters";
 import { SearchBar } from "@/components/ui/SearchBar";
 import { SearchForm } from "@/components/ui/SearchForm";
 import { Loading } from "@/components/ui/Loading";
 import { ErrorState } from "@/components/ui/ErrorState";
-import { CharacterGrid } from "@/modules/Characters/CharactersGrid";
+import { CharacterGrid } from "./CharactersGrid";
 import { CharacterService } from "@/services/characterService";
 
 export const Characters = () => {
   const [query, setQuery] = useState("");
-  const [characters, setCharacters] = useState<Character[] | null>(null);
+  const [characters, setCharacters] = useState<ICharacter[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -26,6 +26,7 @@ export const Characters = () => {
       const results = await CharacterService.searchCharacters(query);
       setCharacters(results);
     } catch (err) {
+      console.error(err)
       setCharacters(null);
       setError("No characters found 😢");
     } finally {

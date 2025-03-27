@@ -1,8 +1,8 @@
-import { Character } from "@/types/characters";
+import { ICharacter } from "@/types/characters";
 import CharacterCard from "./CharacterCard";
 
 interface CharacterGridProps {
-  characters: Character[];
+  characters: ICharacter[];
 }
 
 export const CharacterGrid = ({ characters }: CharacterGridProps) => (

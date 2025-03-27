@@ -3,7 +3,7 @@ export interface Location {
   url: string;
 }
 
-export interface Character {
+export interface ICharacter {
   id: number;
   name: string;
   status: "Alive" | "Dead" | "unknown";

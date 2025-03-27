@@ -1,10 +1,10 @@
-import { Character } from "@/types/characters";
+import { ICharacter } from "@/types/characters";
 import { CheckCircleIcon, QuestionMarkCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import React from "react";
 
 interface CharacterCardProps {
-  char: Character;
+  char: ICharacter;
 }
 
 const CharacterCard = ({ char }: CharacterCardProps) => {

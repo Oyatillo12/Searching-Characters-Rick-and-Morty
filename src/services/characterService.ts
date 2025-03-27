@@ -1,8 +1,8 @@
 import { useAxios } from "@/hooks/useAxios";
-import { Character } from "@/types/characters";
+import { ICharacter } from "@/types/characters";
 
 export const CharacterService = {
-  async searchCharacters(query: string): Promise<Character[]> {
+  async searchCharacters(query: string): Promise<ICharacter[]> {
     const response = await useAxios().get(`/character/?name=${query}`);
     return response.data.results;
   },
