@@ -10,7 +10,7 @@ export const Loading = () => (
         style={{ animationDuration: "2s", animationDirection: "reverse" }}
       ></div>
       <div className="absolute w-1/2 h-1/2 rounded-full bg-teal-400 opacity-20 animate-pulse"></div>
-      <div className="text-teal-300 font-bold text-lg">
+      <div className="text-teal-300 font-bold text-center text-lg">
         WUBBA LUBBA DUB DUB!
       </div>
     </div>
