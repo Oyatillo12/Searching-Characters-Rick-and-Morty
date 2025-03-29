@@ -26,6 +26,7 @@ export const Characters = () => {
     try {
       const response = await axiosInstance.get(`/character/?name=${query}`);
       setCharacters(response.data?.results);
+      console.log(response.data)
     } catch (err) {
       console.error(err);
       setCharacters(null);

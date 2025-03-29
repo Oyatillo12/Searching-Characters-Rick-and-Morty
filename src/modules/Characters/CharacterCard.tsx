@@ -16,6 +16,7 @@ const CharacterCard = ({ char }: CharacterCardProps) => {
         <Image
           src={char?.image}
           alt={char?.name}
+          sizes=""
           fill
           className="object-cover transition-transform duration-500 hover:scale-105"
         />
